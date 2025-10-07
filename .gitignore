@@ -47,6 +47,7 @@ stack.yaml.lock
 # Python/virtual env helper output
 /scripts/.venv/
 /scripts/__pycache__/
+/scripts/.ipynb
 
 # Package metadata
 *.egg-info/
