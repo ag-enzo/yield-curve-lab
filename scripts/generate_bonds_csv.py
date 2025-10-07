@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate the MVP bonds CSV for YieldCurveLab.
+Generate the MVP bonds CSV for Yield Curve Lab.
 
 Usage example (from project root):
     cd scripts
