@@ -6,7 +6,7 @@ Usage example (from project root):
     cd scripts
     uv run generate_bonds_csv.py \
         --settle 2025-10-02 \
-        --output ../input/bonds.csv
+        --output input/bonds.csv
 """
 from __future__ import annotations
 
