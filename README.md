@@ -83,7 +83,8 @@ classDiagram
 
 ## Validation & Tests
 
-- `cabal test` runs unit specs plus a golden test that rebuilds the sample pipeline and compares the generated analytics against `test/golden/analytics_expected.csv`.
+- `cabal test` runs unit specs plus a golden test that rebuilds the sample pipeline and compares the generated analytics against `test/golden/analytics_expected.csv`. 
+- Considering your target date and input variables, you will have to re-calculate personally the `test/golden/analytics_expected.csv` CSV file to account for the correct numbers that you need for your necessity.
 - Curve validation checks (monotone DF, bounds, negative forward share) are emitted to `out/curve_report.json`.
 - CLI warns if requested KRD keys differ from the fixed 2/5/10/30 presentation columns.
 
@@ -96,7 +97,6 @@ classDiagram
 ## Data References
 
 - European Central Bank Statistical Data Warehouse – Yield curve spot rates (Euro area AAA).
-- Bundled sample curve: `data/ecb_sample_2025-10-02.csv` (included for offline runs).
 - Sample bonds: `input/bonds.csv` (three demo instruments used by tests).
 
 ## Changelog
