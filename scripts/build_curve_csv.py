@@ -2,7 +2,8 @@
 """Merge individual tenor CSV exports into the tidy curve CSV.
 
 Usage:
-    python build_curve_csv.py --date 2025-10-02 --output data/ecb_sample_2025-10-02.csv
+    cd scripts
+    uv run build_curve_csv.py --date 2025-10-02 --output ../data/ecb_sample_2025-10-02.csv
 
 The script expects per-tenor CSV files in `data/` named like `ecb-3m.csv`,
 `ecb-6m.csv`, `ecb-1y.csv`, etc., each with the ECB Data Portal export format.
@@ -71,7 +72,7 @@ def main(argv: Iterable[str]) -> int:
     output_path = Path(args.output)
     try:
         write_curve(args.date, output_path)
-    except Exception as exc:  # pragma: no cover - convenience tool
+    except Exception as exc:  
         print(f"Error: {exc}", file=sys.stderr)
         return 1
     print(f"Wrote {output_path} for {args.date}")

@@ -3,9 +3,10 @@
 Generate the MVP bonds CSV for YieldCurveLab.
 
 Usage example (from project root):
-    python scripts/generate_bonds_csv.py \
+    cd scripts
+    uv run generate_bonds_csv.py \
         --settle 2025-10-02 \
-        --output input/bonds.csv
+        --output ../input/bonds.csv
 """
 from __future__ import annotations
 
@@ -13,7 +14,9 @@ import argparse
 import csv
 from pathlib import Path
 from typing import Iterable, List, Tuple
+import sys
 
+BASE_DIR = Path(__file__).resolve().parents[1]
 
 def parse_args(argv: Iterable[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Write the sample bonds.csv file.")
@@ -75,7 +78,8 @@ def write_csv(path: Path, rows: List[Tuple[str, str, str, str, str, str]]) -> No
 
 def main(argv: Iterable[str]) -> int:
     args = parse_args(argv)
-    output_path = Path(args.output)
+    raw_output = Path(args.output)
+    output_path = raw_output if raw_output.is_absolute() else (BASE_DIR / raw_output)
     rows = build_rows(args.settle)
     write_csv(output_path, rows)
     print(f"Wrote {output_path} with {len(rows)} sample bonds.")
@@ -83,4 +87,4 @@ def main(argv: Iterable[str]) -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main([]))
+    raise SystemExit(main(sys.argv[1:]))
