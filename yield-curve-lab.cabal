@@ -1,0 +1,74 @@
+cabal-version:      3.12
+name:               yield-curve-lab
+version:            0.1.0.0
+license:            NONE
+author:             enzoag
+maintainer:         enzoauto@icloud.com
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+
+common project-settings
+    default-language: GHC2021
+    ghc-options: -Wall -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+
+library
+    import: project-settings
+    hs-source-dirs: src
+    exposed-modules:
+        CLI
+        Curve.Build
+        Data.ECB
+        Domain
+        Pricing.Bond
+        Report
+        Risk.Measures
+    other-modules:
+    build-depends:
+        aeson,
+        base >=4.18 && <4.19,
+        bytestring,
+        cassava,
+        containers,
+        filepath,
+        hashable,
+        directory,
+        optparse-applicative,
+        scientific,
+        text,
+        time,
+        vector
+
+executable ycl
+    import: project-settings
+    hs-source-dirs: app
+    main-is: Main.hs
+    build-depends:
+        base >=4.18 && <4.19,
+        yield-curve-lab
+
+test-suite spec
+    import: project-settings
+    type: exitcode-stdio-1.0
+    hs-source-dirs: test
+    main-is: Spec.hs
+    build-depends:
+        base >=4.18 && <4.19,
+        bytestring,
+        temporary,
+        time,
+        scientific,
+        aeson,
+        cassava,
+        containers,
+        text,
+        vector,
+        hspec,
+        QuickCheck,
+        yield-curve-lab
+    other-modules:
+        CurveSpec
+        CurveBuildSpec
+        BondSpec
+        RiskSpec
+        ReportSpec
+        GoldenSpec

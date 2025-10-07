@@ -1,0 +1,63 @@
+# Build artifacts
+/dist/
+/dist-*/
+/dist-newstyle/
+/data/
+/.stack-work/
+/.ghc.environment.*
+/.cabal-sandbox/
+/cabal.sandbox.config
+*.hi
+*.hi-boot
+*.o
+*.o-boot
+*.hie
+*.hspp
+*.hp
+*.prof
+*.eventlog
+*.hpc
+/.hpc/
+
+# Cabal/Stack metadata
+cabal.project.local
+cabal.project.local~
+stack.yaml.lock
+
+# Hoogle & Haddock caches
+/.hoogle/
+/.haddock/
+
+# Generated outputs
+/out/
+/data/ecb_*.csv
+/out/**
+
+# Golden / artifacts (keep committed analytics_expected.csv only)
+/test/golden/*.tmp
+
+# IDE/editor
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Python/virtual env helper output
+/scripts/.venv/
+/scripts/__pycache__/
+
+# Package metadata
+*.egg-info/
+*.egg
+*.manifest
+*.spec
+pip-wheel-metadata/
+__pypackages__/
+
+# Misc
+*.log
+*.tmp
+
+
